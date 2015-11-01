@@ -1,0 +1,26 @@
+# ---------------------- #
+# site config            #
+# ---------------------- #
+name: surge conf
+baseurl:
+url: http://proxy.yeh.sh
+keywords: surge conf
+description: surge conf
+
+# ---------------------- #
+# jekyll                 #
+# ---------------------- #
+safe: true
+auto: true
+pygments: true
+markdown: redcarpet
+timezone: Asia/Shanghai
+
+# ---------------------- #
+# deployment             #
+# ---------------------- #
+deploy:
+repository:
+branch:
+
+
