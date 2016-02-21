@@ -13,7 +13,7 @@ description: surge conf
 safe: true
 auto: true
 pygments: true
-markdown: redcarpet
+markdown: kramdown
 timezone: Asia/Shanghai
 
 # ---------------------- #
