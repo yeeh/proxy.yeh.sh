@@ -1,4 +1,4 @@
-This is the site at http://proxy.yeh.sh/
+This is the site at https://proxy.yeh.sh/
 ====
 
 surge config
