@@ -5,16 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30c38488-a109-4c3e-9b7d-7d8791efefc5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/cloudfront.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gcore.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SSEncrypt.module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/surge.conf" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/_worker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloudfront.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cloudfront.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gcore.txt" beforeDir="false" afterPath="$PROJECT_DIR$/gcore.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -65,7 +71,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1714484017187</updated>
-      <workItem from="1714484018270" duration="2423000" />
+      <workItem from="1714484018270" duration="7638000" />
     </task>
     <servers />
   </component>

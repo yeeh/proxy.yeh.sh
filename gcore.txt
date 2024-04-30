@@ -1,8 +1,8 @@
-sg-hk2: hk2-speedtest.tools.gcore.com, 443
-sg-sg1: sg1-speedtest.tools.gcore.com, 443
-sg-sy4: sy4-speedtest.tools.gcore.com, 443
-sg-ww: ww-speedtest.tools.gcore.com, 443
-jp-jp1: jp1-speedtest.tools.gcore.com, 443
-jp-kx: kx-speedtest.tools.gcore.com, 443
-jp-ny2: ny2-speedtest.tools.gcore.com, 443
-jp-sg1: sg1-speedtest.tools.gcore.com, 443
+hk2-speedtest.tools.gcore.com:443#sg-hk2
+sg1-speedtest.tools.gcore.com:443#sg-sg1
+sy4-speedtest.tools.gcore.com:443#sg-sy4
+ww-speedtest.tools.gcore.com:443#sg-ww
+jp1-speedtest.tools.gcore.com:443#jp-jp1
+kx-speedtest.tools.gcore.com:443#jp-kx
+ny2-speedtest.tools.gcore.com:443#jp-ny2
+sg1-speedtest.tools.gcore.com:443#jp-sg1
