@@ -1,11 +1,9 @@
 # ---------------------- #
 # site config            #
 # ---------------------- #
-name: surge conf
+name: proxy
 baseurl:
 url: http://proxy.yeh.sh
-keywords: surge conf
-description: surge conf
 
 # ---------------------- #
 # jekyll                 #
