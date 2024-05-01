@@ -4,14 +4,11 @@ let addresses = [];
 
 // 设置优选地址api接口
 let addressesapi = [
-    'https://vless-4ca.pages.dev/sub?host=123.workers.dev&uuid=aaa&edgetunnel=cmliu&proxyip=true' //可参考内容格式 自行搭建。
+    'https://vless-4ca.pages.dev/sub?host=test.vless.workers.dev&uuid=7c7227f2-78cd-4d1f-83d4-5f440a452df6&edgetunnel=cmliu&proxyip=true' //可参考内容格式 自行搭建。
 ];
-
-let link = '';
 
 let SUBUpdateTime = 6;
 let total = 99;//PB
-//let timestamp = now;
 let timestamp = 4102329600000;//2099-12-31
 
 function decodeAndExtract(text) {
@@ -48,14 +45,39 @@ function decodeAndExtract(text) {
     return output;
 }
 
-
-
 async function getAddressesapi(cdn) {
+
     if(!!cdn){
-        addressesapi = [
-            cdn
-        ];
+        let addresses = [];
+        try {
+            const response = await fetch(cdn);
+
+            if (!response.ok) {
+                console.error('获取地址时出错:', response.status, response.statusText);
+            }
+
+            let text = await response.text();
+            let lines;
+            if (text.includes('\r\n')){
+                lines = text.split('\r\n');
+            } else {
+                lines = text.split('\n');
+            }
+
+            addresses = lines.map(line => {
+                const match = line.length > 0 && line.includes(':') && line.includes('#');
+                return match ? line : null;
+            }).filter(Boolean);
+
+        } catch (error) {
+            console.error('获取地址时出错:', error);
+        }
+        if(addresses.length > 0){
+            return addresses;
+        }
     }
+
+
 
     let newAddressesapi = [];
 
@@ -78,12 +100,11 @@ async function getAddressesapi(cdn) {
             }
             const regex = /^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})(:\d+)?(#.*)?$/;
 
-            const apiAddresses = lines.map(line => {
+            newAddressesapi = lines.map(line => {
                 const match = line.match(regex);
                 return match ? match[0] : null;
             }).filter(Boolean);
 
-            newAddressesapi = newAddressesapi.concat(apiAddresses);
         } catch (error) {
             console.error('获取地址时出错:', error);
             continue;
@@ -143,9 +164,7 @@ export default {
                 });
             }
 
-
-            const newAddressesapi = await getAddressesapi(cdn);
-            addresses = addresses.concat(newAddressesapi);
+            addresses = await getAddressesapi(cdn);
 
             // 使用Set对象去重
             const uniqueAddresses = [...new Set(addresses)];
