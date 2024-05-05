@@ -90,7 +90,7 @@ async function getAddressesapi(ip, base64) {
             const match = line.length > 0 && line.includes(':') && line.includes('#');
             return match ? line : null;
         }).filter(Boolean);
-        
+
     } catch (error) {
         console.error('获取地址时出错:', error);
     }
