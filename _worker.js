@@ -86,20 +86,11 @@ async function getAddressesapi(ip, base64) {
             lines = text.split('\n');
         }
 
-        if(!!base64){
-            const regex = /^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})(:\d+)?(#.*)?$/;
-            addresses = lines.map(line => {
-                const match = line.match(regex);
-                return match ? match[0] : null;
-            }).filter(Boolean);
-        }else{
-            addresses = lines.map(line => {
-                const match = line.length > 0 && line.includes(':') && line.includes('#');
-                return match ? line : null;
-            }).filter(Boolean);
-        }
-
-
+        addresses = lines.map(line => {
+            const match = line.length > 0 && line.includes(':') && line.includes('#');
+            return match ? line : null;
+        }).filter(Boolean);
+        
     } catch (error) {
         console.error('获取地址时出错:', error);
     }
