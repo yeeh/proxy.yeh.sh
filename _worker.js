@@ -47,23 +47,20 @@ function decodeAndExtract(text) {
 
 function parseURL(url) {
 
-    // 使用正则表达式匹配URL中的各个部分
-    const regex = /(?:\[([^\[\]]+)\]|([^:\[\]]+)):(\d+)#(.+)/g;
-    const match = regex.exec(url);
-
-    // 如果匹配成功，则提取各个部分的值
-    if (match) {
-
-        // 返回解析结果
-        return {
-            hostname: match[1] ? `[${match[1]}]` : match[2],
-            port: match[3],
-            fragment: match[4],
-        };
+    if(url.includes("]:")){
+        url = url.replace("]:","]#");
+    }else{
+        url = url.replace(":","#");
     }
-    // 如果匹配失败，则返回null
-    return null;
 
+    const split = url.split('#');
+
+
+    return {
+        hostname: split[0],
+        port: split[1],
+        fragment: split[2],
+    };
 }
 
 async function getAddressesapi(ip, base64) {
@@ -89,11 +86,18 @@ async function getAddressesapi(ip, base64) {
             lines = text.split('\n');
         }
 
-
-        addresses = lines.map(line => {
-            const match = line.length > 0 && line.includes(':') && line.includes('#');
-            return match ? line : null;
-        }).filter(Boolean);
+        if(!!base64){
+            const regex = /^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})(:\d+)?(#.*)?$/;
+            addresses = lines.map(line => {
+                const match = line.match(regex);
+                return match ? match[0] : null;
+            }).filter(Boolean);
+        }else{
+            addresses = lines.map(line => {
+                const match = line.length > 0 && line.includes(':') && line.includes('#');
+                return match ? line : null;
+            }).filter(Boolean);
+        }
 
 
     } catch (error) {
